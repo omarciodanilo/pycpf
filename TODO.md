@@ -2,7 +2,7 @@
 - [X] Migrar funções do arquivo gera_e_valida_cpf.py para novos locais:
     - [X] Função main para o arquivo app/main.py.
     - [X] Demais funções para arquivos individuais, dentro do diretório pycpf (arquivos cpf.py e utils.py).
-        - [X] verifica_cpf
+	- [X] verifica_cpf
 	- [X] calcula_dv
 	- [X] compara_dv
 	- [X] converte_cpf
