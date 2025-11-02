@@ -18,5 +18,4 @@
 [ ] Adicionar funcionalidade de gerar um CPF para UF definida pelo usuário.
 
 ### Validar CPF
-[X] Alterar nome de verifica_cpf_inserido para valida_cpf.
 [ ] Ao inserir um CPF inválido, não exibir a linha UF. Exibir apenas as linhas CPF e Situação.

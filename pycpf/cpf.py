@@ -1,3 +1,5 @@
+import random
+
 def converte_cpf(cpf):
     """Realiza conversão e retorna CPF com os separadores ponto e hífen."""
     cpf_convertido = ""

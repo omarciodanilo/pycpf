@@ -1,3 +1,5 @@
+import os
+
 def limpa_tela():
     """Limpa tela com base no Sistema Operacional utilizado."""
     if os.name == "nt":
