@@ -21,7 +21,7 @@
 [ ] Adicionar funcionalidade de gerar um CPF para UF definida pelo usuário.
 
 ### Validar CPF
-[X] Se a situação do CPF for "inválido", não exibir a UF.
+[X] Se a situação do CPF for "inválido", exibir a UF como "não se aplica".
 [ ] Adicionar possibilidade de validar múltiplos CPFs inseridos pelo usuário (retirar pontos e hífen) em formato de lista.
 [ ] Adicionar funcionalidade de validar múltiplos CPFs via upload de arquivo (retirar pontos e hífen).
     [ ] Arquivo TXT separado por quebra de linha.

@@ -48,6 +48,7 @@ def main():
                 uf = "não se aplica"
             dict_cpf[item] = [cpf,situacao,uf]
 
+        print()
         for i in range(qtd):
             print(f"CPF      : { converte_cpf(dict_cpf[item][0]) }")
             print(f"SITUAÇÂO : { dict_cpf[item][1] }")
