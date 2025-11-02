@@ -17,14 +17,14 @@ def main():
     if escolha in ("1", "2"):
         limpa_tela()
         if escolha == "1":
+            print("1 - GERAR CPF\n")
             cpf = gera_cpf()
-
+            
             while cpf.count(cpf[0]) == 11:
                 cpf = gera_cpf()
 
-            print("1 - GERAR CPF\n")
             situacao = "válido"
-            uf = verifica_uf(str(cpf[8]))
+            uf = verifica_uf(cpf[8])
         else:
             print("2 - VALIDAR CPF\n")
             cpf = input("Insira o CPF para validação (apenas números): ")
@@ -34,14 +34,15 @@ def main():
                 primeiro_dv = calcula_dv(cpf, 10)
                 segundo_dv = calcula_dv(cpf, 11)
                 situacao = compara_dv(cpf, primeiro_dv, segundo_dv)
-                uf = verifica_uf(str(cpf[8]))
+                if situacao == "válido":
+                    uf = verifica_uf(str(cpf[8]))
             else:
-                situacao = uf = "inválido"
+                situacao = "inválido"
+                uf = "não se aplica"
 
         print(f"CPF      : { converte_cpf(cpf) }")
         print(f"SITUAÇÃO : { situacao }")
         print(f"UF       : { uf }")
-        print()
     else:
         sys.exit()
 
