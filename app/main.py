@@ -19,10 +19,8 @@ def main():
         if escolha == "1":
             print("1 - GERAR CPF\n")
             cpf = gera_cpf()
-            
             while cpf.count(cpf[0]) == 11:
                 cpf = gera_cpf()
-
             situacao = "válido"
             uf = verifica_uf(cpf[8])
         else:
@@ -35,14 +33,14 @@ def main():
                 segundo_dv = calcula_dv(cpf, 11)
                 situacao = compara_dv(cpf, primeiro_dv, segundo_dv)
                 if situacao == "válido":
-                    uf = verifica_uf(str(cpf[8]))
+                    uf = verifica_uf(cpf[8])
             else:
                 situacao = "inválido"
-                uf = "não se aplica"
 
         print(f"CPF      : { converte_cpf(cpf) }")
         print(f"SITUAÇÃO : { situacao }")
-        print(f"UF       : { uf }")
+        if situacao == "válido":
+            print(f"UF       : { uf }")
     else:
         sys.exit()
 

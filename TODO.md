@@ -18,3 +18,4 @@
 [ ] Adicionar funcionalidade de gerar um CPF para UF definida pelo usuário.
 
 ### Validar CPF
+[X] Se a situação do CPF for "inválido", não exibir a UF.
