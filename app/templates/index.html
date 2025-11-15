@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>PyCPF</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Gerador e Validador de CPF
+        </h1>
+    </header>
+
+    <main>
+        <div>
+            <form method="POST" action="/gerar">
+                <button type=submit>
+                    Gerar
+                </button>
+            </form>
+        </div>
+        <div>
+            <form method="GET" action="/validar">
+                <fieldset>
+                    <input type="text" id="validar" name="validar">
+                    <label for="validar">CPF</label>
+                </fieldset>
+                <button type=submit>
+                    Verificar
+                </button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
