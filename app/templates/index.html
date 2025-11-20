@@ -1,37 +1,42 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 
-<head>
-    <title>PyCPF</title>
-</head>
+	<head>
+		<meta charset="UTF-8" />
+		<title>
+			PyCPF
+		</title>
+		<link rel="stylesheet" type="text/css" href="./static/css/style.css" />
+	</head>
 
-<body>
-    <header>
-        <h1>
-            Gerador e Validador de CPF
-        </h1>
-    </header>
+	<body>
+		<header>
+		    <h1>
+		        Gerador e Validador de CPF
+		    </h1>
+		</header>
 
-    <main>
-        <div>
-            <form method="POST" action="/gerar">
-                <button type=submit>
-                    Gerar
-                </button>
-            </form>
-        </div>
-        <div>
-            <form method="GET" action="/validar">
-                <fieldset>
-                    <input type="text" id="validar" name="validar">
-                    <label for="validar">CPF</label>
-                </fieldset>
-                <button type=submit>
-                    Verificar
-                </button>
-            </form>
-        </div>
-    </main>
-</body>
+	    <div class=geral>
+		    <form method="POST" action="/gerar">
+		        <button type=submit>
+		            Gerar
+		        </button>
+		    </form>
+		    <form class=form-validar method="POST" action="/validar">
+			    <button type=submit>
+			        Validar
+			    </button>
+			    <fieldset>
+			        <input type="text" id="cpf" name="cpf" />
+			    </fieldset>
+
+		    </form>
+		</div> 
+		
+		<footer>
+    		<a href="https://github.com/omarciodanilo" target="_blank">Criado com 💙 por Márcio Danilo</a>
+  		</footer>
+	</body>
 
 </html>

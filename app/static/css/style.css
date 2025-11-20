@@ -1,0 +1,28 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+h1, footer {
+	text-align: center;
+}
+
+.geral {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	margin-bottom: 25px;
+}
+
+.form-validar {
+	display: flex;
+	align-items: center;
+	gap: 5px;	
+}
+
+.form-validar fieldset {
+	border: none;
+    padding: 0;
+    margin: 0;
+}
