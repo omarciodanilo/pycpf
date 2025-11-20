@@ -46,7 +46,7 @@ def compara_dv(cpf, primeiro_dv, segundo_dv):
     """
     Valida se dígitos verificadores calculados são iguais aos inseridos.
     """
-    return "válido" if primeiro_dv == int(cpf[9]) and segundo_dv == int(cpf[10]) else "inválido"
+    return "correto" if primeiro_dv == int(cpf[9]) and segundo_dv == int(cpf[10]) else "incorreto"
 
 def verifica_uf(digito_uf):
     """

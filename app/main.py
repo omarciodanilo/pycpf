@@ -1,13 +1,13 @@
 # imports do Python
-import sys
 from flask import Flask, render_template, request
 
 # import dos módulos do projeto
 from pycpf import converte_cpf, gera_cpf, verifica_cpf, calcula_dv, compara_dv, verifica_uf
 
+"""
 def main():
 
-    """Solicita informações ao usuário e retorna saída na tela."""
+    #Solicita informações ao usuário e retorna saída na tela.
 
     print("GERADOR E VALIDADOR DE CPF")
     print("\nO que você deseja:\n  1. Gerar um CPF válido\n  2. Validar um CPF\n  OBS: para sair, pressione qualquer outra tecla")
@@ -53,6 +53,7 @@ def main():
             print(f"UF       : { dict_cpf[item][2] }\n")
     else:
         sys.exit()
+"""
 
 app = Flask(__name__)
 
@@ -60,33 +61,34 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route("/gerar")
+@app.route("/gerar", methods=['POST'])
 def gerar():
-	lsita_cpf = []
+	lista_cpf = []
 	cpf = gera_cpf()
-	while cpf.count(cpf[0]) == 11:
-		cpf = gera_cpf()
-	uf = verifica_uf(cpf[8])
-	cpf = converte_cpf(cpf)
-	lista_cpf = [cpf, uf]
+	if request.method == "POST":
+		while cpf.count(cpf[0]) == 11:
+			cpf = gera_cpf()
+		uf = verifica_uf(cpf[8])
+		cpf = converte_cpf(cpf)
+		lista_cpf = [cpf, uf]
 	return lista_cpf
 
-@app.route("/validar", methods=['GET', 'POST'])
+@app.route("/validar", methods=['POST'])
 def validar():
 	lista_cpf = []
 	if request.method == "POST":
-		cpf = request.form.get(validar)
+		cpf = request.form.get("cpf")
 		if verifica_cpf(cpf):
 			primeiro_dv = calcula_dv(cpf, 10)
 			segundo_dv = calcula_dv(cpf, 11)
 			situacao = compara_dv(cpf, primeiro_dv, segundo_dv)
-			if situacao == "válido":
+			if situacao == "correto":
 				uf = verifica_uf(cpf[8])
 			else:
-				uf = "não se aplica"
+				uf = ""
 		else:
-			situacao = "inválido"
-			uf = "não se aplica"
+			situacao = "incorreto"
+			uf = ""
 		lista_cpf = [cpf, situacao, uf]
 	return lista_cpf
 
