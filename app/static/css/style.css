@@ -3,7 +3,17 @@ html, body {
 	padding: 0;
 }
 
-h1, footer {
+h1 {
+	text-align: center;
+	margin-bottom: 0;
+}
+
+h2 {
+	text-align: center;
+	margin-top: 0;
+}
+
+footer {
 	text-align: center;
 }
 
