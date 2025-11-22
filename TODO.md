@@ -9,20 +9,19 @@
 		- [X] verifica_uf
 		- [X] gera_cpf
 		- [X] limpa_tela
+- [X] Configurar Flask para migrar o app para Web.
+- [X] Adicionar ao arquivo requirements.txt os pacotes necessários para configurar o app.
 - [ ] Empacotar app no Docker.
-- [ ] Configurar Flask para migrar o app para Web.
-- [ ] Adicionar ao arquivo requirements.txt os pacotes necessários para configurar o app.
 
 ### Gerar CPF
-- [X] Adicionar possibilidade de gerar múltiplos CPFs baseada em quantidade definida pelo usuário.
+- [X] Adicionar possibilidade de gerar múltiplos CPFs baseada em quantidade definida pelo usuário (apenas via Terminal).
 - [ ] Adicionar funcionalidade de gerar arquivo para download.
     - [ ] TXT (CPFs separados por quebra de linha).
     - [ ] CSV (CPFs separados por vírgula).
-- [ ] Adicionar funcionalidade de gerar um CPF para UF definida pelo usuário.
 
 ### Validar CPF
-- [X] Se a situação do CPF for "inválido", exibir a UF como "não se aplica".
-- [ ] Adicionar possibilidade de validar múltiplos CPFs inseridos pelo usuário (retirar pontos e hífen)
+- [X] Se a situação do CPF for "incorreto", exibir a UF em branco.
+- [ ] Adicionar possibilidade de validar múltiplos CPFs inseridos pelo usuário, retirando pontos e hífen (apenas via Terminal).
     - [ ] Formato de lista.
     - [ ] Via upload de arquivo.
         - [ ] Arquivo TXT separado por quebra de linha.
