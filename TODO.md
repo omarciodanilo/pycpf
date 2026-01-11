@@ -11,7 +11,10 @@
 		- [X] limpa_tela
 - [X] Configurar Flask para migrar o app para Web.
 - [X] Adicionar ao arquivo requirements.txt os pacotes necessários para configurar o app.
-- [ ] Empacotar app no Docker.
+- [ ] Definir informações para armazenar no banco de dados: timestamp da solicitação, tipo de solicitação (gerar, validar), código HTTP gerado
+- [ ] Instalar e configurar banco de dados (PostgreSQL)
+- [ ] Ajustar app para se comunicar com o banco de dados e armazenar informações
+- [ ] Empacotar app e banco de dados no Docker através de Docker Compose.
 
 ### Gerar CPF
 - [X] Adicionar possibilidade de gerar múltiplos CPFs baseada em quantidade definida pelo usuário (apenas via Terminal).
