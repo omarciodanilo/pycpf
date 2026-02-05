@@ -15,26 +15,31 @@ For non-brazilians readers:
 - Versão testada: 18
 - Comandos para configuração:
 
-sudo apt install -y postgresql-common
-sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
-sudo apt install -y postgresql-18
-sudo systemctl start postgresql
-sudo systemctl status postgresql
+  `sudo apt install -y postgresql-common`
 
-### Frontend
+  `sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh`
 
-- Comandos para configuração:
+  `sudo apt install -y postgresql-18`
 
-python3 -m venv .venv
-python3 -m pip install -r requirements.txt
+  `sudo systemctl start postgresql`
 
+  `sudo systemctl status postgresql`
+
+### Python
+
+- Versão testada: 3.10.12
+- Comandos para configuração (dentro do repositório pycpf clonado):
+  
+  `python3 -m venv .venv`
+  
+  `python3 -m pip install -r requirements.txt`
 
 ### App
 
 - Comando para inicialização permitindo acesso local:
 
-flask --app app/main.py run
+  `flask --app app/main.py run`
 
 - Comando para inicialização permitindo acesso externo:
 
-flask --app app/main.py run --host 0.0.0.0
+  `flask --app app/main.py run --host 0.0.0.0`
