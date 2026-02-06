@@ -14,7 +14,7 @@
 - [X] Definir informações para armazenar no banco de dados
 - [X] Instalar e configurar banco de dados (PostgreSQL)
 - [X] Ajustar app para se comunicar com o banco de dados e armazenar informações
-- [ ] Criar arquivo .sql para init do banco de dados
+- [X] Criar arquivo .sql para setup do banco de dados
 - [ ] Utilizar arquivo .env para autenticação no banco de dados
 - [ ] Empacotar app e banco de dados no Docker através de Docker Compose.
 

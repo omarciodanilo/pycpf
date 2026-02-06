@@ -13,17 +13,35 @@ For non-brazilians readers:
 ### Banco de Dados
 
 - Versão testada: 18
-- Comandos para configuração:
+- Comandos para configuração do PostgreSQL:
+
+  - Instalar postgresql-common
 
   `sudo apt install -y postgresql-common`
 
+  - Adicionar repositório do PostgreSQL
+
   `sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh`
+
+  - Atualizar lista de repositórios do Ubuntu
+
+  `sudo apt update`
+
+  - Instalar PostgreSQL 18
 
   `sudo apt install -y postgresql-18`
 
-  `sudo systemctl start postgresql`
+  - Logar como usuário postgres
 
-  `sudo systemctl status postgresql`
+  `sudo -u postgres psql`
+
+  - Criar senha para o usuário postgres
+
+  `\password postgres`
+
+- Comando para configuração do banco de dados (dentro do repositório pycpf clonado):
+
+  `psql -U postgres -f init.sql`
 
 ### Python
 
