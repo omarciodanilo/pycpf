@@ -6,7 +6,7 @@ import time
 import os
 
 # import dos módulos do projeto
-from pycpf import converte_cpf, gera_cpf, verifica_cpf, calcula_dv, compara_dv, verifica_uf
+from .cpf import converte_cpf, gera_cpf, verifica_cpf, calcula_dv, compara_dv, verifica_uf
 
 app = Flask(__name__)
 
