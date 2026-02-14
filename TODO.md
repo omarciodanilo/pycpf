@@ -15,8 +15,9 @@
 - [X] Instalar e configurar banco de dados (PostgreSQL)
 - [X] Ajustar app para se comunicar com o banco de dados e armazenar informações
 - [X] Criar arquivo .sql para setup do banco de dados
-- [ ] Utilizar arquivo .env para autenticação no banco de dados
+- [X] Utilizar arquivo .env para autenticação no banco de dados
 - [ ] Empacotar app e banco de dados no Docker através de Docker Compose.
+- [ ] Usar blocos try/except: em caso de erro, logar o erro e tratar (seguir tentando ou exibir mensagem)
 
 ### Gerar CPF
 - [X] Adicionar possibilidade de gerar múltiplos CPFs baseada em quantidade definida pelo usuário (apenas via Terminal).

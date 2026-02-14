@@ -1,7 +1,9 @@
 # imports do Python
 from flask import Flask, render_template, request, jsonify, g
+from dotenv import load_dotenv
 import psycopg2
 import time
+import os
 
 # import dos módulos do projeto
 from pycpf import converte_cpf, gera_cpf, verifica_cpf, calcula_dv, compara_dv, verifica_uf
@@ -14,13 +16,22 @@ dict_cpf = {
 	'uf': '',
 }
 
+# Carregar váriaveis do arquivo .env
+load_dotenv()
+
+DB_HOST = os.getenv('DB_HOST')
+DB_NAME = os.getenv('DB_NAME')
+DB_USER = os.getenv('DB_USER')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+DB_PORT = int(os.getenv('DB_PORT'))
+
 # Comunicação com o PostgreSQL
 conexao_db = psycopg2.connect(
-    database="pycpfdb",
-    host="localhost",
-    user="pycpf",
-    password="pycpf",
-    port="5432"
+    database=DB_NAME,
+    host=DB_HOST,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    port=DB_PORT
 )
 
 @app.before_request
