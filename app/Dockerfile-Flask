@@ -1,0 +1,29 @@
+# Python com shell e gerenciador de pacotes
+#   - cgr.dev/chainguard/python:latest-dev
+#   - 244.04 MB
+# Python
+#   - cgr.dev/chainguard/python:latest
+#   - 23.92 MB
+# Comando para executar container Python
+#   - docker container run -it -d --env-file .env --publish 5000:5000 --network pycpf-network --mount type=bind,source=/home/mdma/estudo/teste-pycpf/,target=/app --user root --entrypoint /bin/bash --name pycpf-flask cgr.dev/chainguard/python:latest-dev
+# Link de apoio
+#   - https://images.chainguard.dev/directory/image/python/overview
+
+FROM cgr.dev/chainguard/python:latest-dev AS dev
+
+WORKDIR /app
+
+RUN python -m venv .venv
+ENV PATH="/app/.venv/bin":$PATH
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+FROM cgr.dev/chainguard/python:latest
+
+WORKDIR /app
+
+ADD app.tar.gz .
+COPY --from=dev /app/.venv /app/.venv
+ENV PATH="/app/.venv/bin":$PATH
+
+ENTRYPOINT ["flask", "app.py"]

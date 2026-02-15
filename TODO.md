@@ -11,13 +11,21 @@
 		- [X] limpa_tela
 - [X] Configurar Flask para migrar o app para Web.
 - [X] Adicionar ao arquivo requirements.txt os pacotes necessários para configurar o app.
-- [X] Definir informações para armazenar no banco de dados
-- [X] Instalar e configurar banco de dados (PostgreSQL)
-- [X] Ajustar app para se comunicar com o banco de dados e armazenar informações
-- [X] Criar arquivo .sql para setup do banco de dados
-- [X] Utilizar arquivo .env para autenticação no banco de dados
-- [ ] Empacotar app e banco de dados no Docker através de Docker Compose.
-- [ ] Usar blocos try/except: em caso de erro, logar o erro e tratar (seguir tentando ou exibir mensagem)
+- [X] Definir informações para armazenar no banco de dados.
+- [X] Instalar e configurar banco de dados (PostgreSQL).
+- [X] Ajustar app para se comunicar com o banco de dados e armazenar informações.
+- [X] Criar arquivo .sql para setup do banco de dados.
+- [X] Utilizar arquivo .env para autenticação no banco de dados.
+- [X] Empacotar app e banco de dados no Docker (em contêineres distintos, para testar funcionamento sem Docker Compose).
+- [ ] Ler documentação da Chainguard sobre utilização das imagens Python e PostgreSQL para adequar a execução dos contêineres.
+- [ ] Criar Dockerfiles para o app e para o banco de dados.
+- [ ] Testar aplicação com os Dockerfiles do app e do banco de dados.
+- [ ] Empacotar app e banco de dados utilizando Docker Compose.
+- [ ] Testar aplicação com o Docker Compose.
+
+### Código Python
+- [ ] Usar blocos try/except: em caso de erro, logar o erro e tratar (seguir tentando ou exibir mensagem).
+- [ ] Verificar motivo de não conseguir executar flask run sem o --host=0.0.0.0.
 
 ### Gerar CPF
 - [X] Adicionar possibilidade de gerar múltiplos CPFs baseada em quantidade definida pelo usuário (apenas via Terminal).

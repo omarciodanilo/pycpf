@@ -1,0 +1,29 @@
+# PostgreSQL com shell e gerenciador de pacotes
+#   - cgr.dev/chainguard/postgres:latest-dev
+#   - 155.54 MB
+# PostgreSQL
+#   - cgr.dev/chainguard/postgres:latest
+#   - 144.35 MB
+# Comando para executar container PostgreSQL
+#   - docker container run -it -d --env POSTGRES_PASSWORD=postgres --network pycpf-network --mount type=volume,source=pycpf-volume,target=/var/lib/postgresql/data --name pycpf-postgresql cgr.dev/chainguard/postgres:latest-dev
+# Link de apoio
+#   - https://images.chainguard.dev/directory/image/postgres/overview
+
+FROM cgr.dev/chainguard/python:latest-dev AS dev
+
+WORKDIR /app
+
+RUN python -m venv .venv
+ENV PATH="/app/.venv/bin":$PATH
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+FROM cgr.dev/chainguard/python:latest
+
+WORKDIR /app
+
+ADD app.tar.gz .
+COPY --from=dev /app/.venv /app/.venv
+ENV PATH="/app/.venv/bin":$PATH
+
+ENTRYPOINT ["flask", "app.py"]
