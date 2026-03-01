@@ -1,29 +1,15 @@
-### Geral
-- [X] Migrar funções do arquivo gera_e_valida_cpf.py para novos locais:
-	- [X] Função main para o arquivo app/main.py.
-	- [X] Demais funções para arquivos individuais, dentro do diretório pycpf (arquivos cpf.py e utils.py).
-		- [X] verifica_cpf
-		- [X] calcula_dv
-		- [X] compara_dv
-		- [X] converte_cpf
-		- [X] verifica_uf
-		- [X] gera_cpf
-		- [X] limpa_tela
-- [X] Configurar Flask para migrar o app para Web.
-- [X] Adicionar ao arquivo requirements.txt os pacotes necessários para configurar o app.
-- [X] Definir informações para armazenar no banco de dados.
-- [X] Instalar e configurar banco de dados (PostgreSQL).
-- [X] Ajustar app para se comunicar com o banco de dados e armazenar informações.
-- [X] Criar arquivo .sql para setup do banco de dados.
-- [X] Utilizar arquivo .env para autenticação no banco de dados.
-- [X] Empacotar app e banco de dados no Docker (em contêineres distintos, para testar funcionamento sem Docker Compose).
-- [ ] Ler documentação da Chainguard sobre utilização das imagens Python e PostgreSQL para adequar a execução dos contêineres.
-- [ ] Criar Dockerfiles para o app e para o banco de dados.
-- [ ] Testar aplicação com os Dockerfiles do app e do banco de dados.
-- [ ] Empacotar app e banco de dados utilizando Docker Compose.
-- [ ] Testar aplicação com o Docker Compose.
+### Docker
+- [X] Ler documentação da Chainguard sobre utilização das imagens Python e PostgreSQL para adequar a execução dos contêineres.
+- [X] Criar Dockerfiles para o app e para o banco de dados.
+- [X] Testar aplicação com os Dockerfiles do app e do banco de dados.
+- [X] Empacotar app e banco de dados utilizando Docker Compose.
+- [RX Testar aplicação com o Docker Compose.
+- [ ] Definir forma segura para não precisar passar senha do PostgreSQL no Dockerfile
+- [ ] Verificar forma mais correta de utilizar variáveis de comunicação entre o Flask e o PostgreSQL (arquivo .env)
+- [ ] Adicionar healthcheck para validar comunicação entre Flask e PostgreSQL
 
 ### Código Python
+- [ ] Adicionar rota health para realizar healthcheck (comunicação entre Flask e PostgreSQL)
 - [ ] Usar blocos try/except: em caso de erro, logar o erro e tratar (seguir tentando ou exibir mensagem).
 - [ ] Verificar motivo de não conseguir executar flask run sem o --host=0.0.0.0.
 

@@ -8,22 +8,14 @@
 #   - docker container run -it -d --env POSTGRES_PASSWORD=postgres --network pycpf-network --mount type=volume,source=pycpf-volume,target=/var/lib/postgresql/data --name pycpf-postgresql cgr.dev/chainguard/postgres:latest-dev
 # Link de apoio
 #   - https://images.chainguard.dev/directory/image/postgres/overview
+# Comando para criar imagem
+# docker image build -f Dockerfile-PostgreSQL -t pycpf-postgresql .
+# Comando para executar container PostgreSQL após criação de imagem
+#   - docker container run -it -d --publish 5432:5432 --network pycpf-network --mount type=volume,source=pycpf-volume,target=/var/lib/postgresql/data --name pycpf-postgresql pycpf-postgresql
 
-FROM cgr.dev/chainguard/python:latest-dev AS dev
+FROM cgr.dev/chainguard/postgres:latest
 
-WORKDIR /app
+ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DB=pycpfdb
 
-RUN python -m venv .venv
-ENV PATH="/app/.venv/bin":$PATH
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-
-FROM cgr.dev/chainguard/python:latest
-
-WORKDIR /app
-
-ADD app.tar.gz .
-COPY --from=dev /app/.venv /app/.venv
-ENV PATH="/app/.venv/bin":$PATH
-
-ENTRYPOINT ["flask", "app.py"]
+COPY init.sql /var/lib/postgres/initdb/

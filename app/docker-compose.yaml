@@ -1,0 +1,40 @@
+services:
+  pycpf-flask:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-Flask
+    image: pycpf-flask:latest
+    env_file: .env
+    ports:
+      - "5000:5000"
+    networks:
+      - pycpf-network
+    depends_on:
+      pycpf-postgresql:
+        condition: service_healthy
+  pycpf-postgresql:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-PostgreSQL
+    image: pycpf-postgresql:latest
+    ports:
+      - "5432:5432"
+    networks:
+      - pycpf-network
+    volumes:
+      - type: volume
+        source: pycpf-volume
+        target: /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres", "-d", "pycpfdb"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+networks:
+  pycpf-network:
+    driver: bridge
+
+volumes: 
+  pycpf-volume:
