@@ -7,6 +7,19 @@
 - [ ] Definir forma segura para não precisar passar senha do PostgreSQL no Dockerfile
 - [ ] Verificar forma mais correta de utilizar variáveis de comunicação entre o Flask e o PostgreSQL (arquivo .env)
 - [ ] Adicionar healthcheck para validar comunicação entre Flask e PostgreSQL
+- [ ] Adicionar tag _YY.MM.VERSION_ nas imagens, baseada na sugestão _ENVIRONMENT:YY.MM.VERSION_ de [Bhanu Teja](https://decodeops.substack.com/p/latest-tag-will-kill-your-weekend). Assim, a imagem gerada será identificada, por exemplo, como _omarciodanilo/pycpf-flask:26.1.0_
+- [ ] Criar um pipeline no GitHub Actions para, a cada modificação no código, gerar como artefato as imagens Docker do Flask e PostgreSQL e enviá-las para meu Docker Hub
+
+### GitHub Actions
+- [ ] Criar pipeline para, a cada modificação no código:
+  - [ ] Validar código (lint, etc.)
+  - [ ] Gerar app.tar.gz
+  - [ ] Subir containers
+  - [ ] Validar comunicação entre containers
+  - [ ] Gerar imagens dos containers
+  - [ ] Verificar segurança das imagens com Trivy
+  - [ ] Assinar imagens com Cosign
+  - [ ] Enviar imagens para meu Docker Hub
 
 ### Código Python
 - [ ] Adicionar rota health para realizar healthcheck (comunicação entre Flask e PostgreSQL)
