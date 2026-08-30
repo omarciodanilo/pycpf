@@ -1,63 +1,109 @@
-## Descrição
+> # Nota
+> Esta aplicação deve ser utilizada para fins de teste.
 
-Aplicação que gera um CPF válido ou valida um CPF inserido pelo usuário.
+# Descrição
 
-For non-brazilians readers:
-- Python application that generates a valid CPF or validates an inserted CPF by the user.
-- [CPF is a document that identifies a taxpayer at the Federal Internal Revenue Department, and carries registration information supplied by the individual and by the Federal Internal Revenue Department database.](https://thebrazilbusiness.com/qa/what-is-cpf)
+- Aplicação que gera um CPF válido ou valida um CPF inserido pelo usuário.
 
-### Aviso importante: esta aplicação deve ser utilizada para fins de teste de software.
+# Configurar ambiente
 
-## Configuração do ambiente
+## Versões testadas
 
-### Banco de Dados
+- Sistemas Operacionais: `Ubuntu 22.04 LTS`, `Ubuntu 24.04 LTS`
+- PostgreSQL: `18`
+- Python: `3.10.12`
+- Flask: `XYZ`
+- Docker: `XYZ`
 
-- Versão testada: 18
-- Comandos para configuração do PostgreSQL:
+## Ambiente sem Docker
 
-  - Instalar postgresql-common
+### PostgreSQL
+
+- Instalar postgresql-common
 
   `sudo apt install -y postgresql-common`
 
-  - Adicionar repositório do PostgreSQL
+- Adicionar repositório do PostgreSQL
 
   `sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh`
 
-  - Atualizar lista de repositórios do Ubuntu
+- Atualizar lista de repositórios do Ubuntu
 
   `sudo apt update`
 
-  - Instalar PostgreSQL 18
+- Instalar PostgreSQL 18
 
   `sudo apt install -y postgresql-18`
 
-  - Logar como usuário postgres
+- Logar como usuário postgres
 
   `sudo -u postgres psql`
 
-  - Criar senha para o usuário postgres
+- Criar senha para o usuário postgres
 
-  `\password postgres`
+  `\password <senha>`
 
-- Comando para configuração do banco de dados (dentro do repositório pycpf clonado):
+- Configurar o banco de dados (dentro do repositório cpf-hub clonado):
 
   `psql -U postgres -f init.sql`
 
-### Python
+  > OBS: será solicitada a senha do usuário postgres
 
-- Versão testada: 3.10.12
-- Comandos para configuração (dentro do repositório pycpf clonado):
+### Python/Flask
+
+- Iniciar ambiente virtual Python (dentro do repositório cpf-hub clonado):
   
   `python3 -m venv .venv`
+
+- Ativar ambiente virtual
+
+  `source .venv/bin/activate`
+
+- Instalar pré-requisitos
   
   `python3 -m pip install -r requirements.txt`
 
-### App
+### Variáveis de ambiente
 
-- Comando para inicialização permitindo acesso local:
+- Copiar o arquivo `.env.template` e editar no `.env` a variável `DB_HOST` para `localhost`
+
+  `cp .env.template .env`
+
+### Executar aplicação
+
+- Apenas acesso local
 
   `flask --app app/main.py run`
 
-- Comando para inicialização permitindo acesso externo:
+- Acesso local e externo
 
   `flask --app app/main.py run --host 0.0.0.0`
+
+- Encerrar aplicação
+
+  `Ctrl + C`
+
+## Ambiente com Docker
+
+### Docker
+
+- Instalar o Docker Engine
+
+  - [Ambiente de testes](https://docs.docker.com/engine/install/ubuntu/#install-using-the-convenience-script)
+  - [Ambiente de produção](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository)
+
+### Variáveis de ambiente
+
+- Copiar o arquivo `.env.template`
+
+  `cp .env.template .env`
+
+### Executar aplicação
+
+- Subir os contêineres (API Flask + PostgreSQL)
+
+  `docker compose up -d --build`
+
+- Encerrar aplicação
+
+  `docker compose down`

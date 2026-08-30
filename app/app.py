@@ -104,4 +104,4 @@ def validar():
 	return jsonify(dict_cpf)
 
 if __name__ == '__main__':
-    main()
+    app.run()

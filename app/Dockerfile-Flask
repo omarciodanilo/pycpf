@@ -5,13 +5,13 @@
 #   - cgr.dev/chainguard/python:latest
 #   - 23.92 MB
 # Comando para executar container Python
-#   - docker container run -it -d --env-file .env --publish 5000:5000 --network pycpf-network --mount type=bind,source=/home/mdma/estudo/teste-pycpf/,target=/app --user root --entrypoint /bin/bash --name pycpf-flask cgr.dev/chainguard/python:latest-dev
+#   - docker container run -it -d --env-file .env --publish 5000:5000 --network cpf-hub-network --mount type=bind,source=/home/mdma/estudo/teste-cpf-hub/,target=/app --user root --entrypoint /bin/bash --name cpf-hub-flask cgr.dev/chainguard/python:latest-dev
 # Link de apoio
 #   - https://images.chainguard.dev/directory/image/python/overview
 # Comando para criar imagem
-# docker image build -f Dockerfile-Flask -t pycpf-flask .
+#   - docker image build -f Dockerfile-Flask -t cpf-hub-flask .
 # Comando para executar container após criação de imagem
-#   - docker container run -it -d --env-file .env --publish 5000:5000 --network pycpf-network --name pycpf-flask pycpf-flask
+#   - docker container run -it -d --env-file .env --publish 5000:5000 --network cpf-hub-network --name cpf-hub-flask cpf-hub-flask
 
 FROM cgr.dev/chainguard/python:latest-dev AS dev
 
