@@ -73,7 +73,7 @@
 
 - Apenas acesso local
 
-  `flask --app app/main.py run`
+  `flask --app app.py run`
 
 - Acesso local e externo
 
@@ -107,3 +107,57 @@
 - Encerrar aplicação
 
   `docker compose down`
+
+### Comandos úteis
+
+#### Python/Flask
+
+- Executar container Python ([link de apoio](https://images.chainguard.dev/directory/image/python/overview))
+
+  ```docker container run -it -d \
+  --env-file .env \
+  --publish 5000:5000 \
+  --network cpf-hub-network \
+  --mount type=bind,source=$(pwd),target=/app \
+  --user root \
+  --entrypoint /bin/bash \
+  --name cpf-hub-flask \
+  cgr.dev/chainguard/python:latest-dev```
+
+- Comando para criar imagem
+
+  `docker image build -f Dockerfile-Flask -t cpf-hub-flask .`
+
+- Comando para executar container após criação de imagem
+
+  ```docker container run -it -d \
+  --env-file .env \
+  --publish 5000:5000 \
+  --network cpf-hub-network \
+  --name cpf-hub-flask \
+  cpf-hub-flask```
+
+#### PostgreSQL
+
+- Comando para executar container PostgreSQL ([link de apoio](https://images.chainguard.dev/directory/image/postgres/overview))
+
+  ```docker container run -it -d \
+  --env-file .env \
+  --network cpf-hub-network \
+  --mount type=volume,source=cpf-hub-volume,target=/var/lib/postgresql/data \
+  --name cpf-hub-postgresql \
+  cgr.dev/chainguard/postgres:latest-dev```
+
+- Comando para criar imagem
+
+  `docker image build -f Dockerfile-PostgreSQL -t cpf-hub-postgresql .`
+
+- Comando para executar container PostgreSQL após criação de imagem
+
+  ```docker container run -it -d \
+  --publish 5432:5432 \
+  --env-file .env \
+  --network cpf-hub-network \
+  --mount type=volume,source=cpf-hub-volume,target=/var/lib/postgresql/data \
+  --name cpf-hub-postgresql \
+  cpf-hub-postgresql```
