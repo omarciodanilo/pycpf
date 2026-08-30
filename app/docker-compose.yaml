@@ -1,10 +1,11 @@
 services:
+
   cpf-hub-flask:
     build:
       context: .
       dockerfile: Dockerfile-Flask
     container_name: cpf-hub-flask
-    image: cpf-hub-flask:latest
+    image: cpf-hub-flask:26.08.0
     env_file: .env
     ports:
       - "5000:5000"
@@ -13,12 +14,13 @@ services:
     depends_on:
       cpf-hub-postgresql:
         condition: service_healthy
+
   cpf-hub-postgresql:
     build:
       context: .
       dockerfile: Dockerfile-PostgreSQL
     container_name: cpf-hub-postgresql
-    image: cpf-hub-postgresql:latest
+    image: cpf-hub-postgresql:26.08.0
     env_file: .env    
     ports:
       - "5432:5432"
