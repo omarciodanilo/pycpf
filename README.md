@@ -73,11 +73,11 @@
 
 - Apenas acesso local
 
-  `flask --app app.py run`
+  `flask run`
 
 - Acesso local e externo
 
-  `flask --app app/main.py run --host 0.0.0.0`
+  `flask run --host 0.0.0.0`
 
 - Encerrar aplicação
 
