@@ -7,14 +7,6 @@
 
 # Configurar ambiente
 
-## Versões testadas
-
-- Sistemas Operacionais: `Ubuntu 22.04 LTS`, `Ubuntu 24.04 LTS`
-- PostgreSQL: `18`
-- Python: `3.10.12`
-- Flask: `XYZ`
-- Docker: `XYZ`
-
 ## Ambiente sem Docker
 
 ### PostgreSQL
