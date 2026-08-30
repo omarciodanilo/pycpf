@@ -1,0 +1,21 @@
+# PostgreSQL com shell e gerenciador de pacotes
+#   - cgr.dev/chainguard/postgres:latest-dev
+#   - 155.54 MB
+# PostgreSQL
+#   - cgr.dev/chainguard/postgres:latest
+#   - 144.35 MB
+# Comando para executar container PostgreSQL
+#   - docker container run -it -d --env POSTGRES_PASSWORD=postgres --network pycpf-network --mount type=volume,source=pycpf-volume,target=/var/lib/postgresql/data --name pycpf-postgresql cgr.dev/chainguard/postgres:latest-dev
+# Link de apoio
+#   - https://images.chainguard.dev/directory/image/postgres/overview
+# Comando para criar imagem
+# docker image build -f Dockerfile-PostgreSQL -t pycpf-postgresql .
+# Comando para executar container PostgreSQL após criação de imagem
+#   - docker container run -it -d --publish 5432:5432 --network pycpf-network --mount type=volume,source=pycpf-volume,target=/var/lib/postgresql/data --name pycpf-postgresql pycpf-postgresql
+
+FROM cgr.dev/chainguard/postgres:latest
+
+ENV POSTGRES_PASSWORD=postgres
+ENV POSTGRES_DB=pycpfdb
+
+COPY init.sql /var/lib/postgres/initdb/

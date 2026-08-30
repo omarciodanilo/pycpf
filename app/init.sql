@@ -1,11 +1,8 @@
 -- Criar usuário pycpf
 CREATE USER pycpf WITH PASSWORD 'pycpf';
 
--- Criar banco de dados pycpfdb e atribuir o usuário pycpf como dono
-CREATE DATABASE pycpfdb OWNER pycpf;
-
--- Conectar ao banco de dados pycpfdb
-\c pycpfdb
+-- Atribuir o usuário pycpf como dono do banco de dados pycpfdb
+ALTER DATABASE pycpfdb OWNER TO pycpf;
 
 -- Criar esquema para o usuário pycpf
 CREATE SCHEMA IF NOT EXISTS pycpf AUTHORIZATION pycpf;
